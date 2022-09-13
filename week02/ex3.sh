@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gcc ex1.c
+gcc ex3.c
 ./a.out
