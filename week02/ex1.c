@@ -15,11 +15,11 @@ int main() {
     f = FLT_MAX;
     d = DBL_MAX;
 
-    printf("%d\n", i);
-    printf("%u\n", usi);
-    printf("%ld\n", sli);
-    printf("%f\n", f);
-    printf("%f\n", d);
+    printf("%lu %d\n", sizeof(i), i);
+    printf("%lu %u\n", sizeof(usi), usi);
+    printf("%lu %ld\n", sizeof(sli), sli);
+    printf("%lu %f\n", sizeof(f), f);
+    printf("%lu %f\n", sizeof(d), d);
 
     return 0;
 }
