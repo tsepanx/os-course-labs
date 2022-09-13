@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-long int convert(long int n, int s, int t) {
+long long int convert(long long int n, int s, int t) {
     if (s > 10 || s < 2 || t > 10 || t < 2) { printf("cannot convert!"); exit(0); }
 
     int cum = 0;
@@ -40,14 +40,14 @@ long int convert(long int n, int s, int t) {
 
     res[i] = '\0';
 
-    long int resn;
+    long long int resn;
     sscanf(res, "%ld", &resn);
 
     return resn;
 }
 
 int main() {
-    long int n; int s, t;
+    long long int n; int s, t;
 
     printf("Enter n: ");
     scanf("%ld", &n);
@@ -58,7 +58,7 @@ int main() {
     printf("Enter t: ");
     scanf("%d", &t);
 
-    long int res;
+    long long int res;
     res = convert(n, s, t);
 
     printf("%ld", res);
