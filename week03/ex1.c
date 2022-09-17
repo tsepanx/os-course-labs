@@ -13,32 +13,30 @@ int foo(int age) {
 
 int main() {
 
+    const n = 5;
+
     const int x = 10;
     const int *q = &x;
 
-    int nbytes = sizeof (const int) * 5;
+    int *const p = malloc(sizeof(int) * 5);
 
-    int *const p = malloc(nbytes);
-
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < n; ++i) {
         *(p + i) = x;
         printf("%p\n", p+i);
     }
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < n; ++i) {
         int c;
         scanf("%d", &c);
         *(p + i) = c;
     }
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < n; ++i) {
         int xx = p[i];
         p[i] = foo(xx);
     }
 
-    for (int i = 0; i < 5; ++i) {
-        p[i] = NULL;
-    }
+    free(p);
 
 
 	return EXIT_SUCCESS;
