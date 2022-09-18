@@ -18,25 +18,26 @@ int main() {
     const int x = 10;
     const int *q = &x;
 
-    int *const p = malloc(sizeof(int) * 5);
+    const int *const p = (const int*) malloc(sizeof(const int) * 5);
 
+    int* pp = (int*) p;
     for (int i = 0; i < n; ++i) {
-        *(p + i) = x;
+        pp[i] = x;
         printf("%p\n", p+i);
     }
 
     for (int i = 0; i < n; ++i) {
         int c;
         scanf("%d", &c);
-        *(p + i) = c;
+        pp[i] = c;
     }
 
     for (int i = 0; i < n; ++i) {
         int xx = p[i];
-        p[i] = foo(xx);
+        pp[i] = foo(xx);
     }
 
-    free(p);
+    free(pp);
 
 
 	return EXIT_SUCCESS;
