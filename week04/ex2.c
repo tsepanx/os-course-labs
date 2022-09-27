@@ -21,7 +21,7 @@ int dotprod(int u[], int v[], int start, int end){
 
 int writeToFile(int x) {
     FILE * f;
-    f = fopen("/home/void/gh/os-course-labs/week04/temp.txt", "a");
+    f = fopen("./temp.txt", "a");
 
     if (f != NULL) {
         char str[100];
@@ -77,7 +77,7 @@ int main(void){
         size_t len = 0;
         int res = 0;
 
-        f = fopen("/home/void/gh/os-course-labs/week04/temp.txt", "r");
+        f = fopen("./temp.txt", "r");
         if (f == NULL)
             exit(EXIT_FAILURE);
 
