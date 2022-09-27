@@ -7,7 +7,10 @@ int main(void){
 
     while (1) {
         if (fgets(input, 1024, stdin)) {
-            system(input);
+            pid_t pid = fork();
+            if (!pid) {
+                system(input);
+            }
         } else break;
     }
 
