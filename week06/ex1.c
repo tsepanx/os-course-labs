@@ -67,13 +67,13 @@ int main() {
         arr[i][1] = bt;
     }
 
-    print_2d_ints_arr(arr, n, 2);
-    printf("\n");
+//    print_2d_ints_arr(arr, n, 2);
+//    printf("\n");
 
 //    qsort (arr, sizeof(arr)/sizeof(*arr), sizeof(*arr), comp);
     sort(arr, n);
 
-    print_2d_ints_arr(arr, n, 2);
+//    print_2d_ints_arr(arr, n, 2);
 
 
     int cur_tick = 0;
