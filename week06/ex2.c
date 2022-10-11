@@ -4,7 +4,7 @@
 void sort(int ** arr, int rows) {
     for (int i = 0; i < rows; i++) {
         for (int j = i +1; j < rows; ++j) {
-            if (arr[i][0] > arr[j][0]) {
+            if (arr[i][0] > arr[j][0] || (arr[i][0] == arr[j][0] && arr[i][1] > arr[j][1])) {
                 int *swap = arr[i];
                 arr[i] = arr[j];
                 arr[j] = swap;
