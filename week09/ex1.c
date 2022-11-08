@@ -7,7 +7,7 @@
 
 typedef struct VirtualPage{
     int number;
-    char counter_bits_string[AGING_BITS];
+    char counter_bits_string[AGING_BITS + 1];
     int counter;
     int r_bit;
     int is_present;
@@ -18,7 +18,6 @@ void age_page(struct VirtualPage* vp) {
     int len = strlen(vp->counter_bits_string);
     char new_bit = vp->r_bit + '0';
 
-//    int skip_shift_for_last_elem = (len >= 8);
     for (int i = len - 1; i >= 1; --i) {
         vp->counter_bits_string[i] = vp->counter_bits_string[i - 1];
     }
@@ -48,6 +47,7 @@ void func(int page_frames_count) {
         for (int j = 0; j < AGING_BITS; ++j) {
             vp->counter_bits_string[j] = '0';
         }
+        vp->counter_bits_string[AGING_BITS] = '\0';
         virtual_mem_pages[i] = vp;
     }
 
@@ -64,7 +64,7 @@ void func(int page_frames_count) {
             age_page(virtual_mem_pages[i]);
             virtual_mem_pages[i]->r_bit = 0;
 
-            // Form an array of present in memory pages
+            // Form an array of pages present in physical memory
             if (virtual_mem_pages[i]->is_present) {
                 present_pages[present_cnt] = virtual_mem_pages[i];
                 present_cnt++;
@@ -108,6 +108,7 @@ int main() {
 //    int page_frames_count;
 //    scanf("%d", &page_frames_count);
 
+    func(5);
     func(10);
     func(50);
     func(100);
