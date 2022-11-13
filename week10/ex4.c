@@ -26,6 +26,8 @@ int main() {
         i++;
     }
 
+    printf("File —– Hard Links\n");
+
     for (int j = 0; j < i; ++j) {
         struct dirent *dp = namelist[j];
 
@@ -34,17 +36,17 @@ int main() {
 
         if (strcmp(dp->d_name,".") != 0 && strcmp(dp->d_name,"..") != 0) {
             if (buff.st_nlink > 1) {
+                printf("%s - ", path(dp, dirname));
 
-                printf("%s %ld (inum=%ld)\n", path(dp, dirname), buff.st_nlink, buff.st_ino);
-                printf("\tFiles with the same inumber:\n");
                 for (int k = 0; k < i; ++k) {
                     struct dirent *dpk = namelist[k];
                     struct stat buff2;
                     stat(path(dpk, dirname), &buff2);
                     if (buff.st_ino == buff2.st_ino && strcmp(dp->d_name, dpk->d_name) != 0) {
-                        printf("\t\t%s\n", dpk->d_name);
+                        printf("%s,", dpk->d_name);
                     }
                 }
+                printf("\n");
             }
         }
     }
