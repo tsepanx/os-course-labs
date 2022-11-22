@@ -2,6 +2,9 @@ sudo mkdir /mnt/lofsdisk/lib
 sudo mkdir /mnt/lofsdisk/lib64
 sudo mkdir /mnt/lofsdisk/bin
 
+sudo touch /mnt/lofsdisk/file1
+sudo touch /mnt/lofsdisk/file2
+
 sudo cp /usr/lib/libreadline.so.8 /mnt/lofsdisk/lib
 sudo cp /usr/lib/libdl.so.2 /mnt/lofsdisk/lib
 sudo cp /usr/lib/libc.so.6 /mnt/lofsdisk/lib
@@ -27,5 +30,5 @@ sudo chroot /mnt/lofsdisk /bin/ex2.out > ex2.txt
 echo >> ex2.txt
 ./ex2.out >> ex2.txt
 
-sudo umount /mnt
+# sudo umount /mnt
 

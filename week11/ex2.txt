@@ -1,7 +1,9 @@
-lib
-bin
-usr
 lib64
+bin
+lib
+usr
+file2
+file1
 
 tmp
 usr
